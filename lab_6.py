@@ -237,7 +237,7 @@ while not adequacy:
         Gp = max(dispersion_y) / sum(dispersion_y)
         print("\tКритерій Кохрена")
         Gt = Critical_values.get_cohren_value(f2, f1, q)
-        if Gt > Gp or m >= 25:
+        if Gt > Gp and m < 25:
             print("\t\tДисперсія однорідна при рівні значимості {:.2f}!\n\tЗбільшувати m не потрібно.".format(q))
             homogeneity = True
         else:
