@@ -1,3 +1,9 @@
+from datetime import datetime
+import time
+
+start_time = datetime.now()
+
+
 class Critical_values:
     @staticmethod
     def get_cohren_value(size_of_selections, qty_of_selections, significance):
@@ -28,9 +34,10 @@ def generate_matrix():
     def f(X1, X2, X3):
         """Генерація функції по варіанту"""
         from random import randrange
-        y = 0.2 + 6.7 * X1 + 6.3 * X2 + 7.3 * X3 + 5.7 * X1 * X1 + 1 * X2 * X2 + 3.4 * X3 * X3 + 8.3 * X1 * X2 + \
-            0.1 * X1 * X3 + 6.7 * X2 * X3 + 8.8 * X1 * X2 * X3 + randrange(0, 10) - 5
+        y = 0.5 + 10 * X1 + 5.2 * X2 + 6.6 * X3 + 0.4 * X1 * X1 + 0.8 * X2 * X2 + 5.2 * X3 * X3 + 6.2 * X1 * X2 + \
+            0.9 * X1 * X3 + 4.0 * X2 * X3 + 4.6 * X1 * X2 * X3 + randrange(0, 10) - 5
         return y
+        
 
     matrix_with_y = [[f(matrix_x[j][0], matrix_x[j][1], matrix_x[j][2]) for i in range(m)] for j in range(N)]
     return matrix_with_y
@@ -141,9 +148,9 @@ while not correct_input:
     except ValueError:
         pass
 
-x1_min, x1_max = -25, -5
-x2_min, x2_max = 10, 60
-x3_min, x3_max = -5, 60
+x1_min, x1_max = -20, 30
+x2_min, x2_max = 20, 60
+x3_min, x3_max = -20, -5
 x01 = (x1_max + x1_min) / 2
 x02 = (x2_max + x2_min) / 2
 x03 = (x3_max + x3_min) / 2
@@ -264,3 +271,7 @@ while not adequacy:
         adequacy = True
     else:
         print("\t\tРівняння регресії неадекватне стосовно оригіналу\n\t Проводимо експеремент повторно!")
+        
+        
+print("Общее времяe)
+print(datetime.now() - start_time)
